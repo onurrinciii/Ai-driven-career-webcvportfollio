@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Yeni Deneyim";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+
+<div class="card shadow mt-4">
+    <div class="card-header bg-primary text-white"><h4>Deneyim Ekle</h4></div>
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label>Şirket Adı</label>
+                <input type="text" name="Sirket" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label>Pozisyon</label>
+                <input type="text" name="Pozisyon" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label>Tarih Aralığı</label>
+                <input type="text" name="tarih" class="form-control" placeholder="Örn: 2024 - Günümüz" />
+            </div>
+            <div class="mb-3">
+                <label>Açıklama / Deneyim Notu</label>
+                <textarea name="deneyim_notu" class="form-control" rows="4"></textarea>
+            </div>
+            <button class="btn btn-success">Kaydet</button>
+        </form>
+    </div>
+</div>

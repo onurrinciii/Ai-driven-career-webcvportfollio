@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="webcvrepoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="aciklamalar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="aciklama_info" Type="varchar(max)" />
+          <Property Name="aciklama_info1" Type="varchar(max)" />
+          <Property Name="aciklama_info2" Type="varchar(max)" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ad" Type="varchar" MaxLength="20" />
+          <Property Name="soyad" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Admin_log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Admeyn" Type="varchar" MaxLength="50" />
+          <Property Name="Log_keytrue" Type="int" />
+        </EntityType>
+        <EntityType Name="detay_profil">
+          <Key>
+            <PropertyRef Name="ıd" />
+          </Key>
+          <Property Name="ıd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sırket" Type="varchar" MaxLength="100" />
+          <Property Name="deneyim_notu" Type="varchar(max)" />
+          <Property Name="tarih" Type="date" />
+          <Property Name="Pozisyon" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Iletisim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad_syd" Type="varchar" MaxLength="50" />
+          <Property Name="Mail" Type="varchar(max)" />
+          <Property Name="Konu" Type="varchar" MaxLength="220" />
+          <Property Name="Mesaj" Type="varchar" MaxLength="1000" />
+          <Property Name="Tarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_egitim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OkulAd" Type="nvarchar" MaxLength="150" />
+          <Property Name="Bolum" Type="nvarchar" MaxLength="150" />
+          <Property Name="EgitimDetay" Type="nvarchar" MaxLength="250" />
+          <Property Name="SertifikaDetay" Type="nvarchar" MaxLength="250" />
+          <Property Name="GPA" Type="nvarchar" MaxLength="10" />
+          <Property Name="MezuniyetYili" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tbl_sertifika">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SertifikaAd" Type="nvarchar" MaxLength="200" />
+          <Property Name="Kurum" Type="nvarchar" MaxLength="150" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="SertifikaLink" Type="nvarchar" MaxLength="500" />
+          <Property Name="Ikon" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="work_flow">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="ProjeAd" Type="varchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hazır" Type="int" />
+          <Property Name="Technology" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="webcvrepoModelStoreContainer">
+          <EntitySet Name="aciklamalar" EntityType="Self.aciklamalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_log" EntityType="Self.Admin_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detay_profil" EntityType="Self.detay_profil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Iletisim" EntityType="Self.Iletisim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_egitim" EntityType="Self.tbl_egitim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_sertifika" EntityType="Self.tbl_sertifika" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="work_flow" EntityType="Self.work_flow" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="webcvrepoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="webcvrepoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aciklamalar" EntityType="webcvrepoModel.aciklamalar" />
+          <EntitySet Name="detay_profil" EntityType="webcvrepoModel.detay_profil" />
+          <EntitySet Name="Iletisim" EntityType="webcvrepoModel.Iletisim" />
+          <EntitySet Name="tbl_egitim" EntityType="webcvrepoModel.tbl_egitim" />
+          <EntitySet Name="tbl_sertifika" EntityType="webcvrepoModel.tbl_sertifika" />
+          <EntitySet Name="work_flow" EntityType="webcvrepoModel.work_flow" />
+          <EntitySet Name="Admin_log" EntityType="webcvrepoModel.Admin_log" />
+        </EntityContainer>
+        <EntityType Name="aciklamalar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="aciklama_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="aciklama_info1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="aciklama_info2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="soyad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="detay_profil">
+          <Key>
+            <PropertyRef Name="ıd" />
+          </Key>
+          <Property Name="ıd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sırket" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="deneyim_notu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tarih" Type="DateTime" Precision="0" />
+          <Property Name="Pozisyon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Iletisim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad_syd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Konu" Type="String" MaxLength="220" FixedLength="false" Unicode="false" />
+          <Property Name="Mesaj" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_egitim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OkulAd" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Bolum" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EgitimDetay" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SertifikaDetay" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="GPA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MezuniyetYili" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_sertifika">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SertifikaAd" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Kurum" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="SertifikaLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Ikon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="work_flow">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjeAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hazır" Type="Int32" />
+          <Property Name="Technology" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin_log">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Admeyn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Log_keytrue" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="webcvrepoModelStoreContainer" CdmEntityContainer="webcvrepoEntities">
+          <EntitySetMapping Name="aciklamalar">
+            <EntityTypeMapping TypeName="webcvrepoModel.aciklamalar">
+              <MappingFragment StoreEntitySet="aciklamalar">
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="aciklama_info2" ColumnName="aciklama_info2" />
+                <ScalarProperty Name="aciklama_info1" ColumnName="aciklama_info1" />
+                <ScalarProperty Name="aciklama_info" ColumnName="aciklama_info" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detay_profil">
+            <EntityTypeMapping TypeName="webcvrepoModel.detay_profil">
+              <MappingFragment StoreEntitySet="detay_profil">
+                <ScalarProperty Name="Pozisyon" ColumnName="Pozisyon" />
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="deneyim_notu" ColumnName="deneyim_notu" />
+                <ScalarProperty Name="Sırket" ColumnName="Sırket" />
+                <ScalarProperty Name="ıd" ColumnName="ıd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Iletisim">
+            <EntityTypeMapping TypeName="webcvrepoModel.Iletisim">
+              <MappingFragment StoreEntitySet="Iletisim">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+                <ScalarProperty Name="Konu" ColumnName="Konu" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Ad_syd" ColumnName="Ad_syd" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_egitim">
+            <EntityTypeMapping TypeName="webcvrepoModel.tbl_egitim">
+              <MappingFragment StoreEntitySet="tbl_egitim">
+                <ScalarProperty Name="MezuniyetYili" ColumnName="MezuniyetYili" />
+                <ScalarProperty Name="GPA" ColumnName="GPA" />
+                <ScalarProperty Name="SertifikaDetay" ColumnName="SertifikaDetay" />
+                <ScalarProperty Name="EgitimDetay" ColumnName="EgitimDetay" />
+                <ScalarProperty Name="Bolum" ColumnName="Bolum" />
+                <ScalarProperty Name="OkulAd" ColumnName="OkulAd" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_sertifika">
+            <EntityTypeMapping TypeName="webcvrepoModel.tbl_sertifika">
+              <MappingFragment StoreEntitySet="tbl_sertifika">
+                <ScalarProperty Name="Ikon" ColumnName="Ikon" />
+                <ScalarProperty Name="SertifikaLink" ColumnName="SertifikaLink" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Kurum" ColumnName="Kurum" />
+                <ScalarProperty Name="SertifikaAd" ColumnName="SertifikaAd" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="work_flow">
+            <EntityTypeMapping TypeName="webcvrepoModel.work_flow">
+              <MappingFragment StoreEntitySet="work_flow">
+                <ScalarProperty Name="Technology" ColumnName="Technology" />
+                <ScalarProperty Name="Hazır" ColumnName="Hazır" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProjeAd" ColumnName="ProjeAd" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_log">
+            <EntityTypeMapping TypeName="webcvrepoModel.Admin_log">
+              <MappingFragment StoreEntitySet="Admin_log">
+                <ScalarProperty Name="Log_keytrue" ColumnName="Log_keytrue" />
+                <ScalarProperty Name="Admeyn" ColumnName="Admeyn" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

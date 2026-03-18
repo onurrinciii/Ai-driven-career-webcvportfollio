@@ -1,0 +1,54 @@
+﻿@model webcvone.Models.entitty.tbl_sertifika
+@{
+    ViewBag.Title = "Sertifika Düzenle";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+            <h4 class="mb-0"><i class="fas fa-edit me-2"></i>Sertifika Bilgisini Düzenle</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("SertifikaGuncelle", "Admin", FormMethod.Post))
+            {
+                @Html.HiddenFor(x => x.ID) @* Kritik: Hangi sertifikanın güncelleneceğini bu ID belirler *@
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label font-weight-bold">Sertifika Adı</label>
+                        @Html.TextBoxFor(x => x.SertifikaAd, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label font-weight-bold">Kurum</label>
+                        @Html.TextBoxFor(x => x.Kurum, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label font-weight-bold">Tarih</label>
+                        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label font-weight-bold">Ikon (FontAwesome)</label>
+                        @Html.TextBoxFor(x => x.Ikon, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label font-weight-bold">Sertifika Linki</label>
+                        @Html.TextBoxFor(x => x.SertifikaLink, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="mt-4 border-top pt-3">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-1"></i> Değişiklikleri Kaydet
+                    </button>
+                    <a href="/Admin/SertifikaListesi" class="btn btn-secondary">
+                        <i class="fas fa-times me-1"></i> Vazgeç
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

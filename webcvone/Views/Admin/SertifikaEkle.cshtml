@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Sertifika Ekle";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+
+<div class="card shadow mt-4">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Yeni Sertifika Ekle</h4>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Sertifika Adı</label>
+                    <input type="text" name="SertifikaAd" class="form-control" required />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label>Kurum</label>
+                    <input type="text" name="Kurum" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label>Tarih</label>
+                    <input type="text" name="Tarih" class="form-control" placeholder="Örn: Mart 2026" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Ikon (FontAwesome)</label>
+                    <input type="text" name="Ikon" class="form-control" placeholder="fas fa-award" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Sertifika Linki</label>
+                    <input type="text" name="SertifikaLink" class="form-control" />
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-success">Kaydet</button>
+                <a href="/Admin/SertifikaListesi" class="btn btn-secondary">Vazgeç</a>
+            </div>
+        </form>
+    </div>
+</div>

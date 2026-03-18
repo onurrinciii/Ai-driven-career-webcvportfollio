@@ -1,0 +1,42 @@
+﻿@model webcvone.Models.entitty.Iletisim
+@{
+    ViewBag.Title = "Mesaj Detayı";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+            <h5 class="mb-0">Mesaj İçeriği</h5>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <strong>Gönderen:</strong> <br /> @(Model.Ad_syd ?? "Bilinmiyor")
+                </div>
+                <div class="col-md-4">
+                    <strong>E-Posta:</strong> <br /> @(Model.Mail ?? "-")
+                </div>
+                <div class="col-md-4">
+                    <strong>Tarih:</strong> <br /> @(Model.Tarih?.ToString("dd.MM.yyyy HH:mm") ?? "-")
+                </div>
+            </div>
+            <hr />
+            <div class="mb-3">
+                <strong>Konu:</strong> <br /> @(Model.Konu ?? "Konu Belirtilmemiş")
+            </div>
+            <hr />
+            <div class="mb-3">
+                <strong>Mesaj:</strong>
+                <div class="p-3 mt-2 bg-light border rounded">
+                    @(Model.Mesaj ?? "Bu mesajın içeriği boş.")
+                </div>
+            </div>
+            <div class="mt-4">
+                <a href="/Admin/Mesajlar" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Listeye Dön
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

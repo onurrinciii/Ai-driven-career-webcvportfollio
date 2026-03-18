@@ -1,0 +1,33 @@
+﻿@model webcvone.Models.entitty.detay_profil
+@{
+    ViewBag.Title = "Deneyim Düzenle";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+
+<div class="card shadow mt-4">
+    <div class="card-body">
+        @using (Html.BeginForm("KariyerGuncelle", "Admin", FormMethod.Post))
+        {
+            @Html.HiddenFor(x => x.ıd) @* Küçük 'id' kullandık *@
+
+            <div class="mb-3">
+                <label>Şirket</label>
+                @Html.TextBoxFor(x => x.Sırket, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                <label>Pozisyon</label>
+                @Html.TextBoxFor(x => x.Pozisyon, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                <label>Tarih</label>
+                @Html.TextBoxFor(x => x.tarih, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                <label>Açıklama</label>
+                @Html.TextAreaFor(x => x.deneyim_notu, new { @class = "form-control", rows = "4" })
+            </div>
+
+            <button class="btn btn-primary">Güncelle</button>
+        }
+    </div>
+</div>

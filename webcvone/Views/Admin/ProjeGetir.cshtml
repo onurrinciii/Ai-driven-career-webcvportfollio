@@ -1,0 +1,52 @@
+﻿@model webcvone.Models.entitty.work_flow
+@{
+    ViewBag.Title = "Proje Düzenle";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+            <h4 class="mb-0"><i class="fas fa-edit me-2"></i>Projeyi Düzenle</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("ProjeGuncelle", "Admin", FormMethod.Post))
+            {
+                @* Veritabanındaki Id kolonun küçük harf olduğu için 'Id' olarak taşıyoruz *@
+                @Html.HiddenFor(x => x.Id)
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label font-weight-bold">Proje Adı</label>
+                        @Html.TextBoxFor(x => x.ProjeAd, new { @class = "form-control", required = "required" })
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label font-weight-bold">Kategori</label>
+                        @Html.TextBoxFor(x => x.Category, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label font-weight-bold">Kullanılan Teknolojiler</label>
+                        @Html.TextBoxFor(x => x.Technology, new { @class = "form-control", placeholder = "Örn: .NET, SQL Server, Bootstrap" })
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label font-weight-bold">Durum (Hazır)</label>
+                        @Html.TextBoxFor(x => x.Hazır, new { @class = "form-control", placeholder = "1: Tamamlandı, 2: Devam Ediyor" })
+                        <small class="text-muted">Lütfen 1 (Tamamlandı) veya 2 (Devam Ediyor) değerini giriniz.</small>
+                    </div>
+                </div>
+
+                <div class="mt-4 border-top pt-3 text-end">
+                    <a href="/Admin/ProjeListesi" class="btn btn-secondary me-2">
+                        <i class="fas fa-arrow-left me-1"></i> Listeye Dön
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-1"></i> Değişiklikleri Kaydet
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

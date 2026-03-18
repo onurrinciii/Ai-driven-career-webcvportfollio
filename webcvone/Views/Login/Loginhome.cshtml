@@ -1,0 +1,77 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yönetici Girişi | Onur İnci</title>
+    <link href="/boostrapstart/css/styles.css" rel="stylesheet" />
+    <style>
+        body {
+            background: #34495e;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .btn-login {
+            background: #1abc9c;
+            border: none;
+            color: white;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+            .btn-login:hover {
+                background: #16a085;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h3 class="text-center mb-4">Onur İnci - Admin</h3>
+        <hr />
+
+        @using (Html.BeginForm("Loginhome", "Login", FormMethod.Post))
+        {
+            <div class="mb-3">
+                <label class="form-label fw-bold">Kullanıcı Adı</label>
+                <input type="text" name="Admeyn" class="form-control" placeholder="Kullanıcı adınız" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Şifre (Sayısal)</label>
+                <input type="password" name="Log_keytrue" class="form-control" placeholder="••••••" required />
+            </div>
+
+            if (ViewBag.Hata != null)
+            {
+                <div class="alert alert-danger py-2 text-center" style="font-size: 0.9rem;">
+                    @ViewBag.Hata
+                </div>
+            }
+
+            <button type="submit" class="btn btn-login w-100 mt-2">Sisteme Giriş Yap</button>
+        }
+
+    <div class="text-center mt-3">
+        <a href="/Default/Index" class="text-decoration-none text-muted" style="font-size: 0.8rem;">← Siteye Dön</a>
+    </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿@using webcvone.Models.entitty
+@model List<Iletisim>
+@{
+    ViewBag.Title = "Gelen Mesajlar";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-envelope me-2"></i>Gelen Mesajlar</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Tarih</th>
+                        <th>Gönderen</th>
+                        <th>Konu</th>
+                        <th style="width: 180px;">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@(x.Tarih?.ToString("dd.MM.yyyy") ?? "Belirtilmedi")</td>
+                            <td>@(x.Ad_syd ?? "İsimsiz")</td>
+                            <td>@(x.Konu ?? "Konu Yok")</td>
+                            <td>
+                                <a href="/Admin/MesajDetay/@x.ID" class="btn btn-info btn-sm">
+                                    <i class="fas fa-eye"></i> Oku
+                                </a>
+                                <a href="/Admin/MesajSil/@x.ID" class="btn btn-danger btn-sm" onclick="return confirm('Bu mesajı silmek istediğinize emin misiniz?')">
+                                    <i class="fas fa-trash"></i> Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

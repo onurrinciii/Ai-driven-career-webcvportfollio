@@ -1,0 +1,43 @@
+﻿@model webcvone.Models.entitty.tbl_egitim
+@{
+    ViewBag.Title = "Yeni Eğitim Ekle";
+    Layout = "~/Views/Shared/admin_panel.cshtml"; // Burası senin Layout yolun olmalı
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Yeni Eğitim Bilgisi Ekle</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label>Okul Adı</label>
+                    <input type="text" name="OkulAd" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label>Bölüm</label>
+                    <input type="text" name="Bolum" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Eğitim Detayı (Tarih/Dönem)</label>
+                    <input type="text" name="EgitimDetay" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Ortalama (GPA)</label>
+                    <input type="text" name="GPA" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Mezuniyet Yılı</label>
+                    <input type="text" name="MezuniyetYili" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

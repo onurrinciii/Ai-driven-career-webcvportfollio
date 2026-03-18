@@ -1,0 +1,49 @@
+﻿@model webcvone.Models.entitty.tbl_egitim
+@{
+    ViewBag.Title = "Eğitim Düzenle";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+            <h4 class="mb-0">Eğitim Bilgisini Düzenle</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("EgitimGuncelle", "Admin", FormMethod.Post))
+            {
+                @Html.HiddenFor(x => x.ID) @* ID gizli olarak gitmeli ki kimi güncellediğimizi bilelim *@
+
+                <div class="mb-3">
+                    <label class="form-label">Okul Adı</label>
+                    @Html.TextBoxFor(x => x.OkulAd, new { @class = "form-control" })
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Bölüm</label>
+                    @Html.TextBoxFor(x => x.Bolum, new { @class = "form-control" })
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">GPA (Ortalama)</label>
+                    @Html.TextBoxFor(x => x.GPA, new { @class = "form-control" })
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Eğitim Detayı</label>
+                    @Html.TextBoxFor(x => x.EgitimDetay, new { @class = "form-control" })
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Mezuniyet Yılı</label>
+                    @Html.TextBoxFor(x => x.MezuniyetYili, new { @class = "form-control" })
+                </div>
+
+                <div class="mt-4">
+                    <button class="btn btn-primary">Değişiklikleri Kaydet</button>
+                    <a href="/Admin/EgitimListesi" class="btn btn-secondary">Vazgeç</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
